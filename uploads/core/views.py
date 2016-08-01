@@ -15,7 +15,7 @@ def simple_upload(request):
     if request.method == 'POST' and request.FILES['myfile']:
         myfile = request.FILES['myfile']
         fs = FileSystemStorage()
-        up = fs.save(myfile.name, myfile)
+        fs.save(myfile.name, myfile)
         uploaded_file_url = fs.url(myfile.name)
         return render(request, 'core/simple_upload.html', {
             'uploaded_file_url': uploaded_file_url
